@@ -31,8 +31,6 @@ declare class UploadHelper {
     abort(file: UploadFile): Promise<any>;
     clearAllFiles(): void;
     private ossMultipartUpload;
-    private obsMultipartUpload;
-    private upload;
     getFileList(): UploadFile[];
 }
 interface UploadFile extends File {

@@ -1,6 +1,6 @@
 {
   "name": "ft-upload-helper",
-  "version": "0.0.25",
+  "version": "0.0.31",
   "description": "a file upload tool",
   "main": "./dist/uploadhelper.min.common.js",
   "unpkg": "./dist/uploadhelper.min.js",
@@ -42,6 +42,7 @@
     "rollup-plugin-typescript2": "^0.27.0",
     "style-loader": "^1.2.0",
     "ts-loader": "^7.0.1",
+    "typedoc": "^0.20.20",
     "typescript": "^3.8.3",
     "vue": "^2.6.11",
     "vue-loader": "^15.9.1",
@@ -53,7 +54,6 @@
   },
   "dependencies": {
     "ali-oss": "^6.7.0",
-    "axios": "^0.19.2",
-    "core-js": "^2.6.11"
+    "axios": "^0.19.2"
   }
 }

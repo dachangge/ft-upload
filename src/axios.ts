@@ -15,7 +15,7 @@ axios.interceptors.response.use((res:AxiosResponse<any>) => {
   })
 }, (err:any) => {
   console.log(err);
-  return err;
+  return Promise.reject(err);
 })
 axios.interceptors.request.use((req: AxiosRequestConfig) => {
   // console.log(req);

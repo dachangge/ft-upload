@@ -1,0 +1,259 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>ft-upload-helper</title>
+	<meta name="description" content="Documentation for ft-upload-helper">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">ft-upload-helper</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>ft-upload-helper</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#ft-uploader-helper" id="ft-uploader-helper" style="color: inherit; text-decoration: none;">
+					<h3>FT-UPLOADER-HELPER</h3>
+				</a>
+				<blockquote>
+					<p>帮助你在 不同的环境上传文件.
+					目标是 富通的 全平台下， 一行代码实现 文件 的 上传、 取消，目前还需要后台 统一上传接口</p>
+				</blockquote>
+				<a href="#安装方法：" id="安装方法：" style="color: inherit; text-decoration: none;">
+					<h4>安装方法：</h4>
+				</a>
+				<pre><code><span style="color: #000000">  </span><span style="color: #001080">npm</span><span style="color: #000000"> </span><span style="color: #001080">install</span><span style="color: #000000"> </span><span style="color: #001080">ft</span><span style="color: #000000">-</span><span style="color: #001080">upload</span><span style="color: #000000">-</span><span style="color: #001080">helper</span><span style="color: #000000"> -</span><span style="color: #0070C1">S</span><span style="color: #000000"> </span>
+</code></pre>
+				<a href="#使用方法" id="使用方法" style="color: inherit; text-decoration: none;">
+					<h3>使用方法</h3>
+				</a>
+				<pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">UploadHelper</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;ft-upload-helper&#039;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">uploadHelper</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">UploadHelper</span><span style="color: #000000">({ </span>
+<span style="color: #000000">  </span><span style="color: #001080">params:</span><span style="color: #000000"> { </span><span style="color: #001080">type:</span><span style="color: #000000"> </span><span style="color: #098658">13</span><span style="color: #000000"> }, </span>
+<span style="color: #000000">  </span><span style="color: #001080">progressFn:</span><span style="color: #000000"> </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">uploadProgress</span><span style="color: #000000">.</span><span style="color: #795E26">bind</span><span style="color: #000000">(</span><span style="color: #0000FF">this</span><span style="color: #000000">),</span>
+<span style="color: #000000">  </span><span style="color: #001080">partSize:</span><span style="color: #000000"> </span><span style="color: #098658">5</span>
+<span style="color: #000000">});</span>
+
+<span style="color: #008000">// 单个上传</span>
+<span style="color: #001080">uploadHelper</span><span style="color: #000000">.</span><span style="color: #795E26">submit</span><span style="color: #000000">(</span><span style="color: #001080">file</span><span style="color: #000000">);</span>
+
+<span style="color: #008000">// 先添加进队列  继发上传</span>
+<span style="color: #001080">uploadHelper</span><span style="color: #000000">.</span><span style="color: #795E26">add</span><span style="color: #000000">(</span><span style="color: #001080">file1</span><span style="color: #000000">)</span>
+<span style="color: #001080">uploadHelper</span><span style="color: #000000">.</span><span style="color: #795E26">add</span><span style="color: #000000">(</span><span style="color: #001080">file2</span><span style="color: #000000">)</span>
+<span style="color: #000000">... </span>
+<span style="color: #001080">uploadHelper</span><span style="color: #000000">.</span><span style="color: #795E26">add</span><span style="color: #000000">(</span><span style="color: #001080">file3</span><span style="color: #000000">)</span>
+<span style="color: #001080">uploadHelper</span><span style="color: #000000">.</span><span style="color: #795E26">submitAll</span><span style="color: #000000">()</span>
+
+<span style="color: #008000">// 取消上传</span>
+<span style="color: #001080">uploadHelper</span><span style="color: #000000">.</span><span style="color: #795E26">abort</span><span style="color: #000000">()</span>
+
+<span style="color: #008000">// 清除所有文件</span>
+<span style="color: #001080">uploadHelper</span><span style="color: #000000">.</span><span style="color: #795E26">clearAllFiles</span><span style="color: #000000">()</span>
+
+<span style="color: #008000">// 获取所有文件</span>
+<span style="color: #001080">uploadHelper</span><span style="color: #000000">.</span><span style="color: #795E26">getFileList</span><span style="color: #000000">()</span>
+</code></pre>
+				<a href="#构造方法参数说明" id="构造方法参数说明" style="color: inherit; text-decoration: none;">
+					<h3>构造方法参数说明</h3>
+				</a>
+				<table>
+					<thead>
+						<tr>
+							<th>参数</th>
+							<th>含义</th>
+							<th>默认值</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td>version</td>
+							<td>运行环境</td>
+							<td>默认 alicloud, 可选 alicloud, huaweicloud, 也可通过 VUE_APP_version设置</td>
+						</tr>
+						<tr>
+							<td>progressFn</td>
+							<td>上传进度 回调函数</td>
+							<td>--，注意 绑定 this</td>
+						</tr>
+						<tr>
+							<td>params</td>
+							<td>请求参数</td>
+							<td>--</td>
+						</tr>
+						<tr>
+							<td>partSize</td>
+							<td>分片大小， 单位 Mb</td>
+							<td>10</td>
+						</tr>
+				</tbody></table>
+				<a href="#uploadhelper-实例属性" id="uploadhelper-实例属性" style="color: inherit; text-decoration: none;">
+					<h3>UploadHelper 实例属性</h3>
+				</a>
+				<table>
+					<thead>
+						<tr>
+							<th>属性</th>
+							<th>含义</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td>client</td>
+							<td>obs</td>
+						</tr>
+						<tr>
+							<td>canceledUidList</td>
+							<td>取消上传的文件uid的数组</td>
+						</tr>
+						<tr>
+							<td>upliadFiles</td>
+							<td>已经上传的文件的 Map &lt;file, cancelFn&gt;</td>
+						</tr>
+				</tbody></table>
+				<a href="#uploadhelper-实例方法" id="uploadhelper-实例方法" style="color: inherit; text-decoration: none;">
+					<h3>UploadHelper 实例方法</h3>
+				</a>
+				<table>
+					<thead>
+						<tr>
+							<th>方法名</th>
+							<th>作用</th>
+							<th>参数</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td>submit</td>
+							<td>上传文件</td>
+							<td>file: File 需要上传的文件对象</td>
+						</tr>
+						<tr>
+							<td>abort</td>
+							<td>取消上传</td>
+							<td>file:File 取消上传的文件对象</td>
+						</tr>
+						<tr>
+							<td>add</td>
+							<td>添加文件到上传队列</td>
+							<td>file:File 需要上传的文件对象</td>
+						</tr>
+						<tr>
+							<td>submitAll</td>
+							<td>批量上传（目前只支持继发上传， 考虑做继发）</td>
+							<td>files:Array<File></td>
+						</tr>
+						<tr>
+							<td>clearAllFiles</td>
+							<td>清除所有文件</td>
+							<td>--</td>
+						</tr>
+						<tr>
+							<td>getFileList</td>
+							<td>获取所有的文件列表</td>
+							<td>--</td>
+						</tr>
+				</tbody></table>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_types_ali_oss.html">@types/ali-<wbr>oss</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_types_obs.html">@types/obs</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/axios.html">axios</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/config.html">config</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/el_upliad.html">el-<wbr>upliad</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/index.html">index</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

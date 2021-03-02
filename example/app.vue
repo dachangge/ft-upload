@@ -29,12 +29,7 @@ export default {
   },
   created() {
     if (process.env.VUE_APP_version === 'alicloud') {
-      axios.post('https://r2.rdc.joinf.com/api/a/operator/switch', {"lid":"33023","cid":"33023"}, {
-          // 单独配置
-          withCredentials: true
-        }).then(res => {
-        axios.get('https://r2.rdc.joinf.com/api/a/operator/login').then(() => {
-        })
+      axios.get('https://ceshi.joinf.com/rapi/a/operator/login?cSize=200').then(() => {
       })
     } else {
       axios.post('https://api-gateway.rdc.joinf.com/a/operator/switch', {"lid":"33022","cid":"33022"}, {
@@ -49,10 +44,10 @@ export default {
   mounted() {
     // console.log(process.env.VUE_APP_version);
     this.uploadHelper = new UploadHelper({ 
-      params: { type: 13 }, 
+      params: { type: 13, bucketType: 1 }, 
       progressFn: this.uploadProgress.bind(this),
       partSize: 5,
-      baseUrl: 'https://trade.joinf.com/rapi',
+      baseUrl: 'https://ceshi.joinf.com/rapi',
     });
   },
   methods: {

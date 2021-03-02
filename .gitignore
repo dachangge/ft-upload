@@ -1,4 +1,5 @@
  # Untracked files:
 
- src/*
+dist/*
+demo/*
 node_modules
