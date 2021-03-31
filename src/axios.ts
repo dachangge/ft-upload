@@ -23,6 +23,9 @@ axios.interceptors.request.use((req: AxiosRequestConfig) => {
     req.withCredentials = true;
   }
   return req;
+}, (err: any) => {
+  console.log(err)
+  return Promise.reject(err)
 })
 
 export { axios };
